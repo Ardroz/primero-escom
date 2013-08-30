@@ -1,0 +1,10 @@
+extends layout
+
+block custom-stylesheets
+
+block content
+  .col-md-10
+    - for (var x = 1; x <= 20; x++)
+      img(src="http://placehold.it/150x150&amp;text=two").img-rounded
+
+block custom-scripts
