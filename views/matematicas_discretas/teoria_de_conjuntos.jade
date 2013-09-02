@@ -1,10 +1,18 @@
 extends ../layout
 
 block custom-stylesheets
+  link(rel='stylesheet', href='/stylesheets/own/teoria_de_conjuntos.css')
 
 block content
-  .col-md-10
+  .col-md-4.droppable
+  .col-md-4.droppable
+  .col-md-4.droppable
+
+  p.breaker
+
+  .col-md-9.draggables-container
     - for (var x = 1; x <= 20; x++)
-      img(src="http://placehold.it/150x150&amp;text=two").img-rounded
+      img(src="http://placehold.it/70x70&amp&text="+ x, data-element= x).draggable
+
 
 block custom-scripts

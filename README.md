@@ -1,4 +1,4 @@
-Connjuntos
-==========
+Primer semestre en Escom
 
-Conjuntos
+Tareas que estan aqui:
+  Teoria de Conjuntos - Matemáticas discretas
