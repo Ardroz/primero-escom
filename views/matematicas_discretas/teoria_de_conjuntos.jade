@@ -4,14 +4,46 @@ block custom-stylesheets
   link(rel='stylesheet', href='/stylesheets/own/teoria_de_conjuntos.css')
 
 block content
-  .col-md-4.droppable
-  .col-md-4.droppable
-  .col-md-4.droppable
+  .col-md-9.big-container
+    .col-md-4.droppable#subsetA
+    .col-md-4.droppable#subsetB
+    .col-md-4.droppable#subsetC
 
   p.breaker
 
-  .col-md-9.draggables-container
+  .col-md-9.draggables-container.clearfix
     - for (var x = 1; x <= 20; x++)
-      img(src="http://placehold.it/70x70&amp&text="+ x, data-element= x).draggable
+      .draggable(data-element= x).text-center
+         h1
+          em= x
+
+  .jumbotron
+    h2.text-success.text-center A
+      sup c
+      | &nbsp;&#8746; B
+      sup c 
+      |= {
+      span.operation1
+      |}
+    h2.text-success.text-center A
+      sup c
+      | &nbsp;&#8745; B = {
+      span.operation2
+      |}
+    h2.text-success.text-center (A &#8745; B &#8745; C)
+      sup c
+      |= {
+      span.operation3
+      |}
+    h3.text-info.text-center A = {
+      span.subsetA
+      |}
+    h3.text-info.text-center B = {
+      span.subsetB
+      |}
+    h3.text-info.text-center C = {
+      span.subsetC
+      |}
 
 block custom-scripts
+  script(src='/javascripts/own/teoria_de_conjuntos.js')
