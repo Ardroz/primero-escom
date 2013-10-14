@@ -31,6 +31,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/matematicas_discretas/teoria_de_conjuntos', routes.teoria_de_conjuntos);
+app.get('/matematicas_discretas/maximo_comun_divisor', routes.maximo_comun_divisor);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

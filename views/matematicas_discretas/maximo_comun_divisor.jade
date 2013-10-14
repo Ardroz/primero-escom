@@ -1,0 +1,15 @@
+extends ../layout
+
+block custom-stylesheets
+  link(rel='stylesheet', href='/stylesheets/own/maximo_comun_divisor.css')
+
+block content
+  .col-md-12(ng-app = 'mcdApp')
+    
+
+
+  a(href='/javascripts/own/maximo_comun_divisor.js')
+    h3.text-info.text-center Ir al código fuente
+
+block custom-scripts
+  script(src='/javascripts/own/maximo_comun_divisor.js')
