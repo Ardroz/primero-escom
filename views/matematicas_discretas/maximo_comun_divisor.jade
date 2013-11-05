@@ -4,12 +4,82 @@ block custom-stylesheets
   link(rel='stylesheet', href='/stylesheets/own/maximo_comun_divisor.css')
 
 block content
-  .col-md-12(ng-app = 'mcdApp')
-    
+  .big-wrapper( ng-app = 'gcfApp', ng-controller = 'GcfController' )
+    .left-panel.panel-rz
+      .upper
+        .input-wrapper
+          h3
+            | mcd(a,b) * mcm(a,b) = a * b
+          input.form-control( ng-model = 'gcf2' )
+          input.form-control( ng-model = 'gcf1' )
+          button.btn.btn-block.btn-primary( ng-click = 'gcf()' ) Calcular
+          h4
+            |MCD 
+            |&nbsp; = {{gcf.gcf}}
+            br
+            |MCM 
+            |&nbsp; = {{gcf.lcf}}
+            br
+            |X
+            sub 0
+            |&nbsp; = {{gcf.x}}
+            br
+            |Y
+            sub 0
+            |&nbsp; = {{gcf.y}}
+      .lower
+        .input-wrapper
+          h3
+            | ax &#8801; b mod c
+          .input-group
+            span.input-group-addon a
+            input.form-control( ng-model = 'lc1' )
+          .input-group
+            span.input-group-addon b
+            input.form-control( ng-model = 'lc2' )
+          .input-group
+            span.input-group-addon c
+            input.form-control( ng-model = 'lc3' )
+          button.btn.btn-block.btn-primary( ng-click = 'linealCon()' ) Calcular
+          h4
+            |x
+            sub 0
+            |&nbsp; = {{linealCon.fsol}}
+            br
+            |x = {{linealCon.gs}}
 
+    .right-panel.panel-rz
+      .input-wrapper
+        h3
+          | x &#8801; a mod b
 
-  a(href='/javascripts/own/maximo_comun_divisor.js')
-    h3.text-info.text-center Ir al código fuente
+        .input-group
+            span.input-group-addon a<sub>1
+            input.form-control( ng-model = 'cta1' )
+        .input-group
+          span.input-group-addon b<sub>1
+          input.form-control( ng-model = 'ctb1' )
+        .input-group
+          span.input-group-addon a<sub>2
+          input.form-control( ng-model = 'cta2' )
+        .input-group
+            span.input-group-addon b<sub>2
+            input.form-control( ng-model = 'ctb2' )
+        .input-group
+          span.input-group-addon a<sub>3
+          input.form-control( ng-model = 'cta3' )
+        .input-group
+          span.input-group-addon b<sub>3
+          input.form-control( ng-model = 'ctb3' )
+        .input-group
+            span.input-group-addon a<sub>4
+            input.form-control( ng-model = 'cta4' )
+        .input-group
+          span.input-group-addon b<sub>4
+          input.form-control( ng-model = 'ctb4' )
+        button.btn.btn-block.btn-primary( ng-click = 'chinese()' ) Calcular
+        h4
+          {{chinese.sol}}
 
 block custom-scripts
   script(src='/javascripts/own/maximo_comun_divisor.js')
