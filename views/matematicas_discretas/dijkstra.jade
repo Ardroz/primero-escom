@@ -1,0 +1,44 @@
+extends ../layout
+
+block custom-stylesheets
+  link(rel='stylesheet', href='/stylesheets/own/dijkstra.css')
+
+block content
+  .big-wrapper( ng-app = 'dijkstraApp', ng-controller = 'dijkstraController' )
+    .col-md-3
+      span.input-group-addon Número de vertices
+        input#nodes.form-control( ng-model = 'nodes', placeholder = '1', 
+          type = 'number', min = '1' )
+      br
+      button.btn.btn-block.btn-warning( ng-click = 'setNodes()', 
+            type='button') Definir
+      hr
+      .col-md-12
+        .input-group
+          span.input-group-addon Desde
+          input.form-control( ng-model = 'temporal.from',
+            placeholder = '1', type = 'number', min = '1')
+        .input-group
+          span.input-group-addon Hasta
+          input.form-control( ng-model = 'temporal.to',
+            placeholder = '1', type = 'number', min = '1')
+        .input-group
+          span.input-group-addon Peso
+          input.form-control( ng-model = 'temporal.weight',
+            placeholder = '1', type = 'number', min = '1')
+        br
+        button.btn.btn-block.btn-info( ng-click = 'addConnection()', 
+          type='button') Agregar conexión
+
+
+    .col-md-9
+      .connections-container( ng-repeat = 'connection in connections')
+        span Desde &nbsp;&nbsp;
+          b( ng-bind = 'connection.from' ) 
+        span &nbsp;&nbsp;hasta &nbsp;&nbsp;
+          b( ng-bind = 'connection.to' )
+        span &nbsp;&nbsp;pesa &nbsp;&nbsp;
+          b( ng-bind = 'connection.weight' )
+
+block custom-scripts
+  script(src='/javascripts/own/dijkstra.js')

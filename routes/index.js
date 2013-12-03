@@ -14,3 +14,7 @@ exports.teoria_de_conjuntos = function(req, res){
 exports.maximo_comun_divisor = function(req, res){
   res.render('matematicas_discretas/maximo_comun_divisor', { title: 'Proyectos ESCOM' });
 };
+
+exports.dijkstra = function(req, res){
+  res.render('matematicas_discretas/dijkstra', { title: 'Proyectos ESCOM' });
+};
