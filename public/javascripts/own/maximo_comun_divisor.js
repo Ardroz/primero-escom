@@ -110,7 +110,6 @@ function lastEquivalent( a, m ){
   }
 }
 
-//arreglos com 4 valores
 function chineseTheorem( residues, mods ){
   var m = 1,
       i = 0,
