@@ -6,6 +6,7 @@ block custom-stylesheets
 block content
   .big-wrapper( ng-app = 'dijkstraApp', ng-controller = 'dijkstraController' )
     .col-md-3
+      br
       span.input-group-addon Número de vertices
         input#nodes.form-control( ng-model = 'nodes', placeholder = '1', 
           type = 'number', min = '1' )
@@ -17,18 +18,21 @@ block content
         .input-group
           span.input-group-addon Desde
           input.form-control( ng-model = 'temporal.from',
-            placeholder = '1', type = 'number', min = '1')
+            placeholder = '1', type = 'number')
         .input-group
           span.input-group-addon Hasta
           input.form-control( ng-model = 'temporal.to',
-            placeholder = '1', type = 'number', min = '1')
+            placeholder = '1', type = 'number')
         .input-group
           span.input-group-addon Peso
           input.form-control( ng-model = 'temporal.weight',
-            placeholder = '1', type = 'number', min = '1')
+            placeholder = '1', type = 'number')
         br
         button.btn.btn-block.btn-info( ng-click = 'addConnection()', 
           type='button') Agregar conexión
+      hr
+      button.btn.btn-block.btn-lg.btn-danger( ng-click = 'dijkstra()', 
+            type='button') Dijkstra
 
 
     .col-md-9
