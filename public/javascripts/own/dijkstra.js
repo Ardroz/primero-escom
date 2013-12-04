@@ -5,6 +5,7 @@ dijkstraAppModule.controller('DijkstraController', dijkstraController);
 dijkstraController.$inject = ['$scope'];
 function dijkstraController( scope ){
 
+  scope.answer = [];
   scope.nodes = 0;
   scope.list = [];
 
@@ -58,10 +59,16 @@ function dijkstra ( scope ) {
 
   for ( i = 1; i < nodesLength; i++) {
     minor = minInArray( temporalWeights ( indexes, weights ) );
-    console.log(minor);
+    scope.list[indexOf(weights,minor.value)].forEach( 
+      function ( element, index, array ) {
+        weights[element] = Math.min( weights[element], 
+          minor.value + searchWeight( scope.connections, 
+            indexOf(weights,minor.value), element ));
+      });
     indexes.splice( minor.index, 1);
-    console.log(indexes);
   }
+
+  scope.answer = weights;
 }
 
 function contains ( array, obj ) {
@@ -78,13 +85,24 @@ function contains ( array, obj ) {
 function searchWeight ( array, from, to ) {
   var weight;
 
-  array.forEach( function( element, index, array) {
+  array.forEach( function ( element, index, array) {
     if( element.to === to && element.from === from ){
       weight = element.weight;
     }
   });
 
   return weight;
+}
+
+function indexOf ( array, value ) {
+  var i = 0,
+      len = array.length;
+
+  for ( i = 0; i < len; i++ ) {
+    if ( array[i] == value ) {
+      return i;
+    }
+  }
 }
 
 function minInArray ( array ) {

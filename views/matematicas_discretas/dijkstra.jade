@@ -35,7 +35,7 @@ block content
             type='button') Dijkstra
 
 
-    .col-md-9
+    .col-md-3.text-center
       .connections-container( ng-repeat = 'connection in connections')
         span Desde &nbsp;&nbsp;
           b( ng-bind = 'connection.from' ) 
@@ -43,6 +43,13 @@ block content
           b( ng-bind = 'connection.to' )
         span &nbsp;&nbsp;pesa &nbsp;&nbsp;
           b( ng-bind = 'connection.weight' )
+
+    .col-md-6
+      .jumbotron
+        div( ng-repeat = 'number in answer' )
+          h4 Hasta {{$index}}:&nbsp;
+            span( ng-bind = 'number' )
+            | &nbsp;pasos
 
 block custom-scripts
   script(src='/javascripts/own/dijkstra.js')
