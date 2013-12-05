@@ -1,0 +1,46 @@
+extends ../layout
+
+block custom-stylesheets
+  link(rel='stylesheet', href='/stylesheets/own/orden.css')
+
+block content
+  .big-wrapper( ng-app = 'ordenApp', ng-controller = 'OrdenController' )
+    .col-md-2.lexicographic
+      h2.text-center Orden Lexicográfico
+      .input-group
+        span.input-group-addon Palabra
+        input.form-control( ng-model = 'temporal.word', placeholder = 'lol...')
+      br
+      button.btn.btn-block.btn-primary( ng-click = 'addWord()', 
+        type='button') Agregar palabra
+      .well
+        div( ng-repeat = 'word in words' )
+          span( ng-bind = 'word' )}
+
+      button.btn.btn-block.btn-danger( ng-click = 'order()', 
+        type='button') Ordenar
+
+    .col-md-5.karnaugh
+      h2.text-center Mapas de Karnaugh
+
+    .col-md-5.mapas
+      h2.text-center Mapa de Adyacencia
+
+      .matrix
+        -for ( var i = 0; i < 8; i++ )
+          -for ( var j = 0; j < 8; j++ )
+            .cell
+              -if ( i === j)
+                input(disabled, ng-model = 'matrix[#{i}][#{j}]' )
+              -else
+                input( ng-model = 'matrix[#{i}][#{j}]', type = 'number', 
+                  min = 0, max = 1 )
+
+      button.btn.btn-block.btn-warning( ng-click = 'graph()', 
+        type='button') Crear
+
+      #myDiagram
+
+block custom-scripts
+  script(src='/javascripts/d3/go.js')
+  script(src='/javascripts/own/orden.js')
